@@ -33,7 +33,7 @@ function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: num
   }, [target, duration, hasAnimated]);
 
   return (
-    <div ref={ref} className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+    <div ref={ref} className="text-4xl sm:text-5xl font-black text-white leading-none">
       {count.toLocaleString()}{suffix}
     </div>
   );
@@ -41,66 +41,74 @@ function AnimatedCounter({ target, suffix = "", duration = 2000 }: { target: num
 
 export default function Impact() {
   const stats = [
-    { number: 500, suffix: "+", label: "Swapping Stations", desc: "Across the country" },
-    { number: 50000, suffix: "+", label: "Happy Riders", desc: "And growing daily" },
-    { number: 2, suffix: "M+", label: "Swaps Completed", desc: "Total battery swaps" },
-    { number: 1200, suffix: "T", label: "CO₂ Saved", desc: "Tonnes of emissions prevented" },
+    { number: 50, suffix: "+", label: "Swap Stations", desc: "Planned across Varanasi", icon: "📍" },
+    { number: 1000, suffix: "+", label: "Target Riders", desc: "In our first year", icon: "🛵" },
+    { number: 2, suffix: " min", label: "Swap Time", desc: "Average battery swap", icon: "⚡" },
+    { number: 40, suffix: "%", label: "Cost Savings", desc: "Vs traditional charging", icon: "💰" },
   ];
 
   return (
-    <section id="impact" className="py-20 sm:py-28 bg-white relative">
+    <section className="py-24 sm:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="inline-block bg-green-100 text-green-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">
-            Our Impact
+        <div className="text-center mb-20">
+          <span className="inline-block bg-green-100 text-green-700 px-5 py-2 rounded-full text-sm font-bold mb-5 tracking-wide">
+            OUR IMPACT
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 mb-6">
             Numbers That <span className="gradient-text">Speak Green</span>
           </h2>
           <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-            Every battery swap contributes to a cleaner, greener planet. Here&apos;s what we&apos;ve achieved together.
+            Building Varanasi&apos;s green mobility future — one swap at a time.
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="text-center p-8 rounded-3xl bg-gradient-to-br from-green-600 to-green-800 relative overflow-hidden group hover-lift"
+              className="text-center p-8 rounded-3xl bg-gradient-to-br from-green-900 to-green-800 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-lime-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute top-0 right-0 w-24 h-24 bg-lime-400/[0.08] rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10">
+                <div className="text-3xl mb-4">{stat.icon}</div>
                 <AnimatedCounter target={stat.number} suffix={stat.suffix} />
-                <h3 className="text-xl font-bold text-lime-400 mt-3 mb-1">{stat.label}</h3>
-                <p className="text-green-200 text-sm">{stat.desc}</p>
+                <h3 className="text-base font-bold text-lime-400 mt-3 mb-1">{stat.label}</h3>
+                <p className="text-green-300/60 text-sm">{stat.desc}</p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Call to action banner */}
-        <div className="mt-16 gradient-green rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10" style={{
+        {/* CTA banner */}
+        <div className="mt-20 bg-gradient-to-br from-green-950 via-green-900 to-emerald-900 rounded-[28px] p-10 sm:p-16 text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.04]" style={{
             backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
+            backgroundSize: '32px 32px'
           }} />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-lime-400/10 rounded-full blur-[100px]" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-green-400/10 rounded-full blur-[80px]" />
           <div className="relative z-10">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-4">
               Ready to Make the Switch?
             </h3>
-            <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-              Join thousands of riders who have already made the green transition. 
-              Start swapping today!
+            <p className="text-lg text-green-200/70 mb-10 max-w-xl mx-auto">
+              Join the growing community of Varanasi riders choosing smarter, 
+              greener mobility. Start swapping today!
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 bg-white text-green-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-lime-400 hover:text-green-900 transition-all hover:shadow-xl"
-            >
-              Join Green Batteries
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638l-3.96-4.158a.75.75 0 111.08-1.04l5.25 5.5a.75.75 0 010 1.04l-5.25 5.5a.75.75 0 11-1.08-1.04l3.96-4.158H3.75A.75.75 0 013 10z" clipRule="evenodd" />
-              </svg>
-            </Link>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 bg-lime-400 text-green-950 px-8 py-4 rounded-full font-bold text-base hover:bg-lime-300 transition-all hover:shadow-xl hover:shadow-lime-400/20 active:scale-95"
+              >
+                Join Green Batteries →
+              </Link>
+              <Link
+                href="/how-it-works"
+                className="inline-flex items-center gap-2 border border-white/20 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-white/10 transition-all active:scale-95"
+              >
+                See How It Works
+              </Link>
+            </div>
           </div>
         </div>
       </div>
