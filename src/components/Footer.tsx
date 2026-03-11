@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-green-950 text-white">
@@ -5,21 +8,17 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-green-600 flex items-center justify-center">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="6" y="4" width="12" height="18" rx="2" stroke="white" strokeWidth="2"/>
-                  <rect x="9" y="2" width="6" height="2" rx="1" fill="white"/>
-                  <rect x="9" y="10" width="6" height="8" rx="1" fill="#4ade80"/>
-                  <path d="M12 11L10.5 14H13.5L12 17" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="text-xl font-bold">
-                Green<span className="text-green-400">Batteries</span>
-              </span>
+            <div className="mb-4">
+              <Image
+                src="/logo.png"
+                alt="Green Batteries"
+                width={180}
+                height={50}
+                className="h-12 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-green-300 leading-relaxed mb-6">
-              Powering the future of electric mobility with smart battery swapping technology.
+              Varanasi&apos;s first smart battery swapping network — powering electric mobility for a cleaner tomorrow.
             </p>
           </div>
 
@@ -28,16 +27,17 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {[
-                { name: "Home", href: "#home" },
-                { name: "About Us", href: "#about" },
-                { name: "Services", href: "#services" },
-                { name: "How It Works", href: "#how-it-works" },
-                { name: "Contact", href: "#contact" },
+                { name: "Home", href: "/" },
+                { name: "About Us", href: "/about" },
+                { name: "Services", href: "/services" },
+                { name: "Vehicles", href: "/vehicles" },
+                { name: "How It Works", href: "/how-it-works" },
+                { name: "Contact", href: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
-                  <a href={link.href} className="text-green-300 hover:text-lime-400 transition-colors">
+                  <Link href={link.href} className="text-green-300 hover:text-lime-400 transition-colors">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -45,35 +45,37 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Services</h4>
+            <h4 className="font-bold text-lg mb-4">Solutions</h4>
             <ul className="space-y-3">
-              {["Battery Swapping", "Fleet Solutions", "Subscription Plans", "Smart Batteries", "Station Locator"].map(
+              {["Battery Swapping", "Fleet Solutions", "Subscription Plans", "Smart Batteries", "Station Partners"].map(
                 (item) => (
                   <li key={item}>
-                    <a href="#services" className="text-green-300 hover:text-lime-400 transition-colors">
+                    <Link href="/services" className="text-green-300 hover:text-lime-400 transition-colors">
                       {item}
-                    </a>
+                    </Link>
                   </li>
                 )
               )}
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Stay Updated</h4>
-            <p className="text-green-300 mb-4">
-              Subscribe to get the latest news and updates from Green Batteries.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-3 rounded-xl bg-green-900 border border-green-800 text-white placeholder-green-500 focus:border-green-600 focus:outline-none"
-              />
-              <button className="px-4 py-3 bg-green-600 rounded-xl hover:bg-green-500 transition-colors font-bold">
-                →
-              </button>
+            <h4 className="font-bold text-lg mb-4">Reach Us</h4>
+            <div className="space-y-3 text-green-300 text-sm">
+              <p>📍 Green Batteries HQ<br/>Sigra, Varanasi, UP 221010</p>
+              <p>📞 +91 98765 43210</p>
+              <p>✉️ hello@greenbatteries.in</p>
+            </div>
+            <div className="flex gap-3 mt-6">
+              {["T", "L", "I", "Y"].map((s) => (
+                <span
+                  key={s}
+                  className="w-10 h-10 rounded-lg bg-green-900 flex items-center justify-center hover:bg-green-600 transition-colors cursor-pointer font-bold text-sm text-green-300 hover:text-white"
+                >
+                  {s}
+                </span>
+              ))}
             </div>
           </div>
         </div>
@@ -83,8 +85,8 @@ export default function Footer() {
             © 2026 Green Batteries. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-green-400">
-            <a href="#" className="hover:text-lime-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-lime-400 transition-colors">Terms of Service</a>
+            <Link href="/contact" className="hover:text-lime-400 transition-colors">Privacy Policy</Link>
+            <Link href="/contact" className="hover:text-lime-400 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

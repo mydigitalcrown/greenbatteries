@@ -1,6 +1,8 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 gradient-green" />
       <div className="absolute inset-0">
@@ -21,33 +23,36 @@ export default function Hero() {
           <div className="animate-slide-up">
             <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
               <span className="w-2 h-2 bg-lime-400 rounded-full animate-pulse" />
-              <span className="text-white/90 text-sm font-medium">Powering the EV Revolution</span>
+              <span className="text-white/90 text-sm font-medium">Now Launching in Varanasi 🚀</span>
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6">
               Swap. Ride.
               <br />
               <span className="text-lime-400">Go Green.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-lg leading-relaxed">
-              Instant battery swapping for electric vehicles. No waiting, no charging — 
-              just swap and ride. Join the clean energy movement with Green Batteries.
+            <p className="text-lg sm:text-xl text-white/80 mb-4 max-w-lg leading-relaxed">
+              Varanasi&apos;s first battery swapping network for electric 2-wheelers &amp; 3-wheelers. 
+              No waiting, no charging — just swap and ride.
+            </p>
+            <p className="text-base text-lime-300/80 mb-8 max-w-md">
+              Buy EV, not Battery — save up to 40% on vehicle costs. Unlimited range with instant swaps.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a
-                href="#services"
+              <Link
+                href="/services"
                 className="inline-flex items-center gap-2 bg-white text-green-800 px-8 py-4 rounded-full font-bold text-lg hover:bg-lime-400 hover:text-green-900 transition-all hover:shadow-xl hover:shadow-green-900/20"
               >
                 Explore Services
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638l-3.96-4.158a.75.75 0 111.08-1.04l5.25 5.5a.75.75 0 010 1.04l-5.25 5.5a.75.75 0 11-1.08-1.04l3.96-4.158H3.75A.75.75 0 013 10z" clipRule="evenodd" />
                 </svg>
-              </a>
-              <a
-                href="#how-it-works"
+              </Link>
+              <Link
+                href="/how-it-works"
                 className="inline-flex items-center gap-2 border-2 border-white/40 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
               >
                 How It Works
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -56,43 +61,47 @@ export default function Hero() {
             <div className="relative">
               {/* Main Battery */}
               <div className="w-64 h-96 bg-white/10 backdrop-blur-md rounded-3xl border-2 border-white/20 flex flex-col items-center justify-center p-8 relative">
-                {/* Battery terminal */}
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-20 h-8 bg-white/20 rounded-t-xl border-2 border-white/20 border-b-0" />
-                
-                {/* Charge level */}
                 <div className="w-full h-full rounded-2xl overflow-hidden bg-white/5 relative">
                   <div className="absolute bottom-0 left-0 right-0 h-[75%] bg-gradient-to-t from-green-400 to-lime-400 rounded-2xl opacity-80" />
-                  {/* Lightning bolt */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <svg width="80" height="80" viewBox="0 0 24 24" fill="white" opacity={0.9}>
                       <path d="M13 2L4.5 12.5H11L10 22L18.5 11.5H12L13 2Z" />
                     </svg>
                   </div>
                 </div>
-                
-                <p className="text-white font-bold text-2xl mt-4">75%</p>
+                <p className="text-white font-bold text-2xl mt-4">100%</p>
               </div>
 
               {/* Floating elements */}
               <div className="absolute -top-6 -right-12 bg-lime-400 text-green-900 rounded-2xl px-4 py-2 font-bold text-sm shadow-xl" style={{ animation: 'float 4s ease-in-out infinite 1s' }}>
-                ⚡ 30 sec swap
+                ⚡ 2 min swap
               </div>
               <div className="absolute -bottom-4 -left-16 bg-white text-green-700 rounded-2xl px-4 py-2 font-bold text-sm shadow-xl" style={{ animation: 'float 5s ease-in-out infinite 0.5s' }}>
-                🌱 Zero Emission
+                🌱 Zero Emissions
               </div>
-              <div className="absolute top-1/2 -right-20 bg-emerald-500 text-white rounded-2xl px-4 py-2 font-bold text-sm shadow-xl" style={{ animation: 'float 4.5s ease-in-out infinite 2s' }}>
-                🔋 100+ Stations
+              <div className="absolute top-1/3 -right-24 bg-emerald-500 text-white rounded-2xl px-4 py-2 font-bold text-sm shadow-xl" style={{ animation: 'float 4.5s ease-in-out infinite 2s' }}>
+                📍 Varanasi
+              </div>
+              <div className="absolute top-2/3 -left-20 bg-green-700 text-lime-300 rounded-2xl px-4 py-2 font-bold text-sm shadow-xl" style={{ animation: 'float 5.5s ease-in-out infinite 0.8s' }}>
+                🛵 2W & 3W
               </div>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-white/60 text-sm">Scroll Down</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" opacity={0.6}>
-            <path d="M7 13l5 5 5-5M7 7l5 5 5-5" />
-          </svg>
+        {/* Vehicle types bar */}
+        <div className="mt-16 grid grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0">
+          {[
+            { label: "Electric 2-Wheelers", icon: "🛵" },
+            { label: "Electric 3-Wheelers", icon: "🛺" },
+            { label: "Electric Loaders", icon: "🚛" },
+          ].map((v) => (
+            <div key={v.label} className="glass-card rounded-2xl px-4 py-3 text-center">
+              <div className="text-2xl mb-1">{v.icon}</div>
+              <p className="text-white/90 text-xs sm:text-sm font-medium">{v.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

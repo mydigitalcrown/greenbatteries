@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,8 +11,8 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "Green Batteries | Battery Swapping Revolution",
-  description: "Green Batteries - India's leading battery swapping network. Swap, ride, and go green with instant battery exchange for electric vehicles.",
-  keywords: "battery swapping, electric vehicles, green energy, EV charging, battery exchange",
+  description: "Green Batteries - Varanasi's first battery swapping network for electric 2-wheelers and 3-wheelers. Swap, ride, and go green.",
+  keywords: "battery swapping, electric vehicles, green energy, EV charging, battery exchange, Varanasi",
 };
 
 export default function RootLayout({
@@ -23,7 +25,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} antialiased`}
       >
-        {children}
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
